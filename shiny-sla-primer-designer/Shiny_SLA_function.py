@@ -173,14 +173,22 @@ def sla(guidestrand: str) -> list:
         temp = temp + f'HHetero delta-G (cal/mol): {het_dg}'
         output.append(temp)
 
-    output.append(f'RT-{rt_n}\t{rt}')
-    output.append(f'RT-{rt_n + 1}\t{rt_b}')
-    output.append(f'RT-{rt_n + 2}\t{rt_c}')
-    output.append(f'F-{fp_n}\t{fp}')
-    output.append(f'F-{len(fp_b) - FLAP_N}\t{fp_b}')
-    output.append(f'F-{len(fp_c) - FLAP_N}\t{fp_c}')
-    output.append(f'P-{len(gs) - fp_n}\t{p}')
-    output.append(f'P-{len(gs) - fp_n - 2}\t{p_b}')
+    output.append(f'RT-{rt_n}\t{rt}\t{TM.Tm_NN(rt):.2f}')
+    output.append(f'RT-{rt_n + 1}\t{rt_b}\t{TM.Tm_NN(rt_b):.2f}')
+    output.append(f'RT-{rt_n + 2}\t{rt_c}\t{TM.Tm_NN(rt_c):.2f}')
+    output.append(f'F-{fp_n}\t{fp}\t{TM.Tm_NN(fp)}')
+    output.append(f'F-{len(fp_b) - FLAP_N}\t{fp_b}\t{TM.Tm_NN(fp_b):.2f}')
+    output.append(f'F-{len(fp_c) - FLAP_N}\t{fp_c}\t{TM.Tm_NN(fp_c):.2f}')
+    try:
+        output.append(f'P-{len(gs) - fp_n}\t{p}\t{TM.Tm_NN(p):.2f}')
+    except IndexError as err:
+        print(f'Unable to identify P-{len(gs) - fp_n}')
+        output.append(f'P-{len(gs) - fp_n}\t{p}\t')
+    try:
+        output.append(f'P-{len(gs) - fp_n - 2}\t{p_b}\t{TM.Tm_NN(p_b):.2f}')
+    except IndexError as err:
+        print(f'Unable to identify P-{len(gs) - fp_n - 2}')
+        output.append(f'P-{len(gs) - fp_n - 2}\t{p_b}\t')
 
     #########################################################################
     #########################################################################

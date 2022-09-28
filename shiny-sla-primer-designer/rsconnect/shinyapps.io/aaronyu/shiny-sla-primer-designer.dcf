@@ -5,7 +5,7 @@ account: aaronyu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7002922
-bundleId: 6306925
+bundleId: 6349152
 url: https://aaronyu.shinyapps.io/shiny-sla-primer-designer/
-when: 1663280449.40424
-lastSyncTime: 1663280449.40428
+when: 1664406464.94953
+lastSyncTime: 1664406464.94958
