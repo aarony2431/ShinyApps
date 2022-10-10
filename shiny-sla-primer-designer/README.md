@@ -12,4 +12,5 @@ The Forward primers are designed by taking the first 12-17 nucleotides of the GS
 The Forward primers are designed using the pseudo-random algorithm **100 times** and the primer sets with the highest free energy change (ΔG; a measurement of the likelihood of forming dimers where a lower value indicates more likely) for homodimers and heterodimers with the **universal reverse primer (_5' CCAGTGCAGGGTCCGAGGTA 3'_)** are selected as the best sequences. These sequences are then used to design the probes. This whole process is then repeated another **50 times** to select RT primer, Forward primer, and MGB probe sets which fulfill the following conditions in order of importance:
   1. Contain 3 RT primers, 3 Forward primers, and 2 MGB probes
   2. Contain the longest MGB probes.
+  
 It is, however, still possible that you may only see 1 probe, and it is also possible (and highly likely) that the Forward primers from two different runs with the same GS sequence will be slightly different. The former is likely due to _T<sub>m<sub>_ restraints, while the latter is due to the pseudo-random adjustment of the _FLAP_ for the Forward primers.
